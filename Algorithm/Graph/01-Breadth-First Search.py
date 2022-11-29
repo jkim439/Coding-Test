@@ -1,28 +1,38 @@
-def bfs(graph, start):
-    visited = []
-    queue = [start]
+def bfs(n, m, map):
+    dy = [-1, 0, 1, 0]
+    dx = [0, 1, 0, -1]
+
+    visited = [[0] * m for _ in range(n)]
+    visited[0][0] = 1
+    queue = [[0, 0]]
 
     while queue:
-        node = queue.pop(0)
-        if node not in visited:
-            visited.append(node)
-            queue.extend(graph[node])
+        y, x = queue.pop(0)
 
-    return visited
+        for i in range(4):
+            ny, nx = [y + dy[i], x + dx[i]]
+
+            if (
+                0 <= ny < n
+                and 0 <= nx < m
+                and visited[ny][nx] == 0
+                and map[ny][nx] == 1
+            ):
+                visited[ny][nx] = visited[y][x] + 1
+                queue.append([ny, nx])
+
+    return visited[n - 1][m - 1]
 
 
-graph = dict()
-
-graph["A"] = ["B", "C"]
-graph["B"] = ["A", "D"]
-graph["C"] = ["A", "G", "H", "I"]
-graph["D"] = ["B", "E", "F"]
-graph["E"] = ["D"]
-graph["F"] = ["D"]
-graph["G"] = ["C"]
-graph["H"] = ["C"]
-graph["I"] = ["C", "J"]
-graph["J"] = ["I"]
-
-print(graph)
-print(bfs(graph, "A"))
+print(
+    bfs(
+        4,
+        6,
+        [
+            [1, 0, 1, 1, 1, 1],
+            [1, 0, 1, 0, 1, 0],
+            [1, 0, 1, 0, 1, 1],
+            [1, 1, 1, 0, 1, 1],
+        ],
+    )
+)
