@@ -26,4 +26,5 @@ def solution(n):
         r_e -= 1
         c_s += 1
         c_e -= 1
+
     return [i for sublist in box[1:] for i in sublist]
