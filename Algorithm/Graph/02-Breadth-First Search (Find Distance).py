@@ -1,4 +1,4 @@
-def bfs(n, m, map):
+def bfs(n, m, graph):
     dy = [-1, 0, 1, 0]
     dx = [0, 1, 0, -1]
 
@@ -10,13 +10,13 @@ def bfs(n, m, map):
         y, x = queue.pop(0)
 
         for i in range(4):
-            ny, nx = [y + dy[i], x + dx[i]]
+            ny, nx = y + dy[i], x + dx[i]
 
             if (
                 0 <= ny < n
                 and 0 <= nx < m
                 and visited[ny][nx] == 0
-                and map[ny][nx] == 1
+                and graph[ny][nx] == 1
             ):
                 visited[ny][nx] = visited[y][x] + 1
                 queue.append([ny, nx])
