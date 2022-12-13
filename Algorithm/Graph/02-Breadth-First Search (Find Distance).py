@@ -1,13 +1,18 @@
+from collections import deque
+
+
 def bfs(n, m, graph):
     dy = [-1, 0, 1, 0]
     dx = [0, 1, 0, -1]
 
     visited = [[0] * m for _ in range(n)]
     visited[0][0] = 1
-    queue = [[0, 0]]
+
+    queue = deque()
+    queue.append([0, 0])
 
     while queue:
-        y, x = queue.pop(0)
+        y, x = queue.popleft()
 
         for i in range(4):
             ny, nx = y + dy[i], x + dx[i]
