@@ -1,11 +1,10 @@
-from collections import defaultdict
 from heapq import *
 
 
-def prim(graph, start):
+def prim(n, graph, start):
     mst = []
 
-    adjacent = defaultdict(list)
+    adjacent = [[] for _ in range(n + 1)]
     for node1, node2, weight in graph:
         adjacent[node1].append([weight, node1, node2])
         adjacent[node2].append([weight, node2, node1])
@@ -28,6 +27,7 @@ def prim(graph, start):
     return mst
 
 
+n = 7
 graph = [
     [1, 2, 7],
     [1, 4, 5],
@@ -53,4 +53,4 @@ graph = [
     [7, 6, 11],
 ]
 
-print(prim(graph, 1))
+print(prim(n, graph, 1))

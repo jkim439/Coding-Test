@@ -13,6 +13,7 @@ def dijkstra(n, graph, start):
 
     queue = []
     heappush(queue, [0, start])
+
     while queue:
         cost, node = heappop(queue)
 
