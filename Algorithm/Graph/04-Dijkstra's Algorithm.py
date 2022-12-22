@@ -2,14 +2,13 @@ from heapq import *
 
 
 def dijkstra(n, graph, start):
-    n += 1
-    distances = [float("inf")] * n
-    distances[start] = 0
-
-    adjacent = [[] for _ in range(n)]
+    adjacent = [[] for _ in range(n + 1)]
     for node1, node2, distance in graph:
         adjacent[node1].append([distance, node2])
         adjacent[node2].append([distance, node1])
+
+    distances = [float("inf")] * (n + 1)
+    distances[start] = 0
 
     queue = []
     heappush(queue, [0, start])

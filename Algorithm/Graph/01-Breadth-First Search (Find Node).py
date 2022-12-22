@@ -8,6 +8,7 @@ def bfs(n, graph, start):
         a.sort(reverse=False)
 
     visited = []
+
     queue = [start]
 
     while queue:

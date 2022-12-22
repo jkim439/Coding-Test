@@ -2,14 +2,15 @@ from heapq import *
 
 
 def prim(n, graph, start):
-    mst = []
-
     adjacent = [[] for _ in range(n + 1)]
     for node1, node2, weight in graph:
         adjacent[node1].append([weight, node1, node2])
         adjacent[node2].append([weight, node2, node1])
 
+    mst = []
+
     visited = {start}
+
     queue = adjacent[start]
     heapify(queue)
 

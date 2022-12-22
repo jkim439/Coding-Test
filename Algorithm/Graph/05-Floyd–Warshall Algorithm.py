@@ -1,9 +1,7 @@
-def floyd_warshall(graph):
-    n = len(graph) - 1
+def floyd_warshall(n, graph):
     distances = [[float("inf")] * n for _ in range(n)]
-
-    for i, j, edge in graph:
-        distances[i][j] = edge
+    for node1, node2, distance in graph:
+        distances[node1][node2] = distance
 
     for k in range(n):
         distances[k][k] = 0
@@ -15,6 +13,7 @@ def floyd_warshall(graph):
     return distances
 
 
-data = [[0, 2, -2], [1, 0, 4], [1, 2, 3], [2, 3, 2], [3, 1, -1]]
+n = 4
+graph = [[0, 2, -2], [1, 0, 4], [1, 2, 3], [2, 3, 2], [3, 1, -1]]
 
-print(floyd_warshall(data))
+print(floyd_warshall(n, graph))

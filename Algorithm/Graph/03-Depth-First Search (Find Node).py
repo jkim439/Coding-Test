@@ -8,6 +8,7 @@ def dfs(n, graph, start):
         a.sort(reverse=True)
 
     visited = []
+
     queue = [start]
 
     while queue:
