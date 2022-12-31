@@ -9,13 +9,13 @@ def dfs(n, graph, start):
 
     visited = []
 
-    queue = [start]
+    stack = [start]
 
-    while queue:
-        node = queue.pop()
+    while stack:
+        node = stack.pop()
         if node not in visited:
             visited.append(node)
-            queue.extend(adjacent[node])
+            stack.extend(adjacent[node])
 
     return visited
 
