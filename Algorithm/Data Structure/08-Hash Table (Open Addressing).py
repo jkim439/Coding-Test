@@ -1,10 +1,10 @@
 # Open Addressing, Closed Hashing
 
-buckets = [None for i in range(10)]  # buckets = [None] * 10
+buckets = [None] * 10
 
 
 def get_key(data):
-    return hash(data)
+    return hash(data[0])
 
 
 def hash_function(key):

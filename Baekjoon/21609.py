@@ -1,3 +1,4 @@
+# 상어 중학교 (미완성)
 from collections import deque
 
 
@@ -122,4 +123,4 @@ while 1:
     # 5. 중력 작용
     graph = gravity(n, graph)
 
-    print(score, graph)
+print(score)

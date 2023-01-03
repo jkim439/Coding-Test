@@ -1,6 +1,6 @@
 # Closed Addressing, Open Hashing, Chaining
 
-buckets = [None for i in range(10)]  # buckets = [None] * 10
+buckets = [None] * 10
 
 
 def get_key(data):
