@@ -48,6 +48,7 @@ class NodeManage:
 
         if value == node.value:
             self.head = node.next
+            self.head.prev = None
             del node
 
         else:
@@ -55,6 +56,7 @@ class NodeManage:
                 if node.next.value == value:
                     temp = node.next
                     if node.next.next:
+                        node.next.next.prev = node
                         node.next = node.next.next
                     else:
                         node.next = None
