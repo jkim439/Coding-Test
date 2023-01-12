@@ -4,7 +4,7 @@ buckets = [None] * 10
 
 
 def get_key(data):
-    return hash(data[0])
+    return hash(data)
 
 
 def hash_function(key):
