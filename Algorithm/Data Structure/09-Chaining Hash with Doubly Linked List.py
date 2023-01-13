@@ -10,15 +10,6 @@ class DoublyLinkedList:
         self.head = None
         self.tail = None
 
-    def search(self, key):
-        node = self.head
-
-        while node:
-            if node.value[0] == key:
-                return node.value[1]
-            else:
-                node = node.next
-
     def insert(self, value):
         if self.head is None:
             self.head = Node(value)
@@ -58,23 +49,44 @@ class DoublyLinkedList:
                 else:
                     node = node.next
 
+    def search(self, key):
+        node = self.head
 
-# Closed Addressing, Open Hashing, Chaining
-
-buckets = [None] * 10
-
-
-def get_key(data):
-    return hash(data)
+        while node:
+            if node.value[0] == key:
+                return node.value[1]
+            else:
+                node = node.next
 
 
-def hash_function(key):
+# Plain Hash
+# def hash_function(data):
+#     return hash(data)
+
+
+# djb2 Hash
+# def hash_function(data):
+#     hash = 5381
+#     for d in data:
+#         hash = (((hash << 5) + hash) + ord(d)) & 0xFFFFFFFF
+#     return hash
+
+
+# FNV-1a Hash
+def hash_function(data):
+    hash = 0x811C9DC5
+    for d in data:
+        hash = ((ord(d) ^ hash) * 0x01000193) & 0xFFFFFFFF
+    return hash
+
+
+def get_idx(key):
     return key % 10
 
 
 def save(data, value):
-    key = get_key(data)
-    index = hash_function(key)
+    key = hash_function(data)
+    index = get_idx(key)
     print(data, key, index)
 
     if buckets[index] is None:
@@ -83,8 +95,8 @@ def save(data, value):
 
 
 def load(data):
-    key = get_key(data)
-    index = hash_function(key)
+    key = hash_function(data)
+    index = get_idx(key)
 
     if buckets[index] is not None:
         return buckets[index].search(key)
@@ -92,6 +104,7 @@ def load(data):
         return None
 
 
+buckets = [None] * 10
 save("ab", 12)
 save("ac", 34)
 save("ad", 56)

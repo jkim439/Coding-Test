@@ -3,8 +3,8 @@ def quick_sort(data):
         return data
     else:
         pivot = data[0]
-        left = [item for item in data[1:] if item < pivot]
-        right = [item for item in data[1:] if pivot < item]
+        left = [item for item in data if item < pivot]
+        right = [item for item in data if pivot < item]
         return quick_sort(left) + [pivot] + quick_sort(right)
 
 

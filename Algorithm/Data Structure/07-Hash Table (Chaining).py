@@ -4,7 +4,10 @@ buckets = [None] * 10
 
 
 def get_key(data):
-    return hash(data)
+    hash = 0x811C9DC5
+    for d in data:
+        hash = ((ord(d) ^ hash) * 0x01000193) & 0xFFFFFFFF
+    return hash
 
 
 def hash_function(key):
