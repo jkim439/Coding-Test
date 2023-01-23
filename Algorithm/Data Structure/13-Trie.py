@@ -1,7 +1,6 @@
 class Node:
-    def __init__(self, key, data=None):
+    def __init__(self, key):
         self.key = key
-        self.data = data
         self.child = dict()
 
 
@@ -17,7 +16,7 @@ class Trie:
                 node.child[v] = Node(v)
             node = node.child[v]
 
-        node.data = value
+        node.key = value
 
     def search(self, value):
         node = self.root
@@ -27,7 +26,7 @@ class Trie:
                 node = node.child[v]
             else:
                 return False
-        return node.data
+        return node.key
 
 
 trie = Trie()
