@@ -32,8 +32,8 @@ def permutations(m, data, perm, visited):
 
             perm.append(v)
             permutations(m, data, perm, visited)
-
             perm.pop()
+
             visited[i] = 0
 
 

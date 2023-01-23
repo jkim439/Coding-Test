@@ -1,6 +1,4 @@
 # 1263. [S/W 문제해결 응용] 8일차 - 사람 네트워크2
-
-
 def floyd_warshall(n, graph):
     distances = [[float("inf")] * n for _ in range(n)]
     for node1, node2, distance in graph:

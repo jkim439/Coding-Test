@@ -1,6 +1,13 @@
+# 길 찾기 게임
+import sys
+
+sys.setrecursionlimit(10000)
+
+
 class Node:
-    def __init__(self, value):
-        self.value = value
+    def __init__(self, n, x):
+        self.n = n
+        self.x = x
         self.left = None
         self.right = None
 
@@ -9,49 +16,31 @@ class Tree:
     def __init__(self):
         self.root = None
 
-    def insert(self, value):
+    def insert(self, n, x):
         if self.root is None:
-            self.root = Node(value)
+            self.root = Node(n, x)
 
         else:
             node = self.root
 
             while 1:
-                if value < node.value:
+                if x < node.x:
                     if node.left is None:
-                        node.left = Node(value)
+                        node.left = Node(n, x)
                         break
                     else:
                         node = node.left
-                else:
+
+                elif node.x < x:
                     if node.right is None:
-                        node.right = Node(value)
+                        node.right = Node(n, x)
                         break
                     else:
                         node = node.right
 
-    def search(self, value):
-        node = self.root
-
-        while 1:
-            if value == node.value:
-                return True
-
-            elif value < node.value:
-                if node.left is None:
-                    return False
-                else:
-                    node = node.left
-
-            else:
-                if node.right is None:
-                    return False
-                else:
-                    node = node.right
-
     def preorder(self):
         def order(node):
-            result.append(node.value)
+            result.append(node.n)
 
             if node.left is not None:
                 order(node.left)
@@ -71,17 +60,20 @@ class Tree:
             if node.right is not None:
                 order(node.right)
 
-            result.append(node.value)
+            result.append(node.n)
 
         result = []
         order(self.root)
         return result
 
 
-tree = Tree()
-tree.insert(3)
-tree.insert(1)
-tree.insert(9)
-print(tree.search(1))
-print(tree.preorder())
-print(tree.postorder())
+def solution(nodeinfo):
+    for i, n in enumerate(nodeinfo):
+        n.append(i + 1)
+    nodeinfo.sort(key=lambda x: -x[1])
+
+    tree = Tree()
+    for n in nodeinfo:
+        tree.insert(n[2], n[0])
+
+    return [tree.preorder(), tree.postorder()]

@@ -36,7 +36,7 @@ class Heap:
             if len(self.array) - 1 < left:
                 break
 
-            elif left < len(self.array) <= right:
+            elif left <= len(self.array) - 1 < right:
                 if self.array[i] < self.array[left]:
                     self.array[i], self.array[left] = (
                         self.array[left],
@@ -74,5 +74,8 @@ heap.push(5)
 heap.push(20)
 heap.push(4)
 print(heap.array)
+heap.pop()
+heap.pop()
+heap.pop()
 heap.pop()
 print(heap.array)

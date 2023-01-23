@@ -9,7 +9,7 @@ def merge_sort(data):
         merged = []
         l = r = 0
 
-        while l < len(left) and r < len(right):
+        while l <= len(left) - 1 and r <= len(right) - 1:
             if left[l] < right[r]:
                 merged.append(left[l])
                 l += 1
@@ -17,11 +17,11 @@ def merge_sort(data):
                 merged.append(right[r])
                 r += 1
 
-        while l < len(left):
+        while l <= len(left) - 1:
             merged.append(left[l])
             l += 1
 
-        while r < len(right):
+        while r <= len(right) - 1:
             merged.append(right[r])
             r += 1
 

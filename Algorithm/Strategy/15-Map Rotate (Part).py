@@ -12,7 +12,7 @@ print(board)
 temp = []
 for r in range(1, 4):
     temp.append(board[r][1:4])
-temp = list(zip(*temp[::-1]))
+temp = list(map(list, zip(*board[::-1])))
 print(temp)
 
 # 회전한 결과를 원래 보드판에 붙여넣기

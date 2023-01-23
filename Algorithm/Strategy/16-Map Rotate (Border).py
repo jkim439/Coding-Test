@@ -12,7 +12,7 @@ print(board)
 temp1 = []
 for r in range(1, 6):
     temp1.append(board[r][1:6])
-temp1 = list(zip(*temp1[::-1]))
+temp1 = list(map(list, zip(*temp1[::-1])))
 print(temp1)
 
 # 원치 않는 테두리 제외하고 내부 범위 복사

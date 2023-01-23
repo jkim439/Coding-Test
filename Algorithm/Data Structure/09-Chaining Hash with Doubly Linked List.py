@@ -49,11 +49,11 @@ class DoublyLinkedList:
                 else:
                     node = node.next
 
-    def search(self, key):
+    def search(self, value):
         node = self.head
 
         while node:
-            if node.value[0] == key:
+            if node.value[0] == value:
                 return node.value[1]
             else:
                 node = node.next
