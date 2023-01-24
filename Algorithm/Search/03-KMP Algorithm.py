@@ -9,7 +9,7 @@ def kmp(s, f):
             i += 1
             table[j] = i
 
-    result = []
+    answer = []
     i = 0
     for j in range(len(s)):
         while i > 0 and f[i] != s[j]:
@@ -18,10 +18,10 @@ def kmp(s, f):
         if f[i] == s[j]:
             i += 1
             if i == len(f):
-                result.append(j - i + 1)
+                answer.append(j - i + 1)
                 i = table[i - 1]
 
-    return result
+    return answer
 
 
 print(kmp("xabxxbaxbaxbaxbaxabxbaxbabx", "abx"))

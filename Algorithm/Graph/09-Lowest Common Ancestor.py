@@ -4,10 +4,9 @@ def dfs(i, depth):
     d[i] = depth
 
     for j in adjacent[i]:
-        if c[j]:
-            continue
-        parent[j][0] = i
-        dfs(j, depth + 1)
+        if not c[j]:
+            parent[j][0] = i
+            dfs(j, depth + 1)
 
 
 # Lowest Common Ancestor
@@ -25,9 +24,8 @@ def lca(a, b):
     if a == b:
         return a
 
+    # 조상을 향해 거슬러 올라가기
     for i in range(log - 1, -1, -1):
-
-        # 조상을 향해 거슬러 올라가기
         if parent[a][i] != parent[b][i]:
             a = parent[a][i]
             b = parent[b][i]
@@ -55,7 +53,7 @@ for i in range(1, log):
         parent[j][i] = parent[parent[j][i - 1]][i - 1]
 
 m = int(input())
-for i in range(m):
+for _ in range(m):
     a, b = map(int, input().split())
     print(lca(a, b))
 

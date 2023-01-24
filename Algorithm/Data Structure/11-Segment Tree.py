@@ -36,3 +36,22 @@ for i in range(m + k):
         update(b, diff)
     else:
         print(sum(1, size, b, c, 1))
+
+
+"""
+[INPUT]
+5 2 2
+1
+2
+3
+4
+5
+1 3 6
+2 2 5
+1 5 2
+2 3 5
+
+[OUTPUT]
+17
+12
+"""
