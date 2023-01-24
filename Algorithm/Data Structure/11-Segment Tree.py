@@ -29,7 +29,7 @@ for i in range(n):
 for i in range(size - 1, 0, -1):
     tree[i] = tree[i * 2] + tree[i * 2 + 1]
 
-for i in range(m + k):
+for _ in range(m + k):
     a, b, c = map(int, input().split())
     if a == 1:
         diff = c - tree[size + b - 1]
