@@ -1,9 +1,11 @@
 def spiral_matrix(n):
     dx = [-1, 0, 1, 0]
     dy = [0, 1, 0, -1]
+
     y = x = n // 2
     d = m = i = 0
     j = 1
+
     graph = [[0] * n for _ in range(n)]
 
     while 1:

@@ -1,16 +1,17 @@
 # Tower of Hanoi
-def tower_of_hanoi(start, end, n, path):
+def tower_of_hanoi(n, start, end):
     if n == 1:
-        path.append([start, end])
-    else:
-        empty = 6 - start - end
-        tower_of_hanoi(start, empty, n - 1, path)
-        path.append([start, end])
-        tower_of_hanoi(empty, end, n - 1, path)
-    return path
+        print(start, end)
+        return
+
+    tower_of_hanoi(n - 1, start, 6 - start - end)
+    print(start, end)
+    tower_of_hanoi(n - 1, 6 - start - end, end)
 
 
-print(tower_of_hanoi(1, 3, 3, []))
+n = int(input())
+print(2**n - 1)
+tower_of_hanoi(n, 1, 3)
 
 
 # Fibonacci

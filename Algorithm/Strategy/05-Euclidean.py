@@ -5,12 +5,10 @@ def gcd(a, b):
     return a
 
 
-print(gcd(12, 18))
-
-
 # Least Common Multiple
 def lcm(a, b):
     return a * b / gcd(a, b)
 
 
+print(gcd(12, 18))
 print(lcm(10, 12))

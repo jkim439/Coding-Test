@@ -1,5 +1,4 @@
 def combinations(m, data, comb, depth):
-
     if len(comb) == m:
         print(comb)
         return
@@ -18,7 +17,6 @@ combinations(2, [1, 2, 3, 4], list(), 0)
 
 
 def permutations(m, data, perm, visited):
-
     if len(perm) == m:
         print(perm)
         return
