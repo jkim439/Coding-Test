@@ -64,7 +64,7 @@ class DoublyLinkedList:
 #     return hash(data)
 
 
-# djb2 Hash
+# djb2 Hash (38)
 # def hash_function(data):
 #     hash = 5381
 #     for d in data:
@@ -72,7 +72,7 @@ class DoublyLinkedList:
 #     return hash
 
 
-# FNV-1a Hash
+# FNV-1a Hash (12)
 def hash_function(data):
     hash = 0x811C9DC5
     for d in data:

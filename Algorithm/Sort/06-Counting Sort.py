@@ -2,8 +2,8 @@ def counting_sort(data):
     count = [0] * (max(data) + 1)
     sorted = []
 
-    for i in data:
-        count[i] += 1
+    for d in data:
+        count[d] += 1
 
     for i in range(max(data) + 1):
         for _ in range(count[i]):
