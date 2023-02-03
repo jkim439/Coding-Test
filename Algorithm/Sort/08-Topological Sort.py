@@ -1,9 +1,9 @@
 def topological_sort():
-    n = int(input())
+    n, e = map(int, input().split())
     adjacent = [[] for _ in range(n + 1)]
     indegree = [0] * (n + 1)
 
-    for _ in range(n):
+    for _ in range(e):
         a, b = map(int, input().split())
         adjacent[a].append(b)
         indegree[b] += 1
@@ -31,16 +31,12 @@ print(topological_sort())
 
 """
 [INPUT]
-7
-1 2
-1 5
+5 4
+2 4
+3 5
 2 3
-2 6
-3 4
-4 7
-5 6
-6 4
+1 2
 
 [OUTPUT]
-[1, 2, 5, 3, 6, 4, 7]
+[1, 2, 4, 3, 5]
 """

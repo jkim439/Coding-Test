@@ -1,10 +1,20 @@
-from itertools import combinations
+# 디펜스 게임
+from heapq import *
 
 
 def solution(n, k, enemy):
     answer = 0
-    combination = list(combinations(list(range(len(enemy))), k))
-    return combination
+    sum = 0
+    heap = []
+    for e in enemy:
+        sum += e
+        heappush(heap, -e)
+        if n < sum:
+            if k > 0:
+                sum += heappop(heap)
+                k -= 1
+            else:
+                break
+        answer += 1
 
-
-print(solution(7, 3, [4, 2, 4, 5, 3, 3, 1]))
+    return answer
