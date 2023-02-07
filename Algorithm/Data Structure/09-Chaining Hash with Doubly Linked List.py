@@ -87,7 +87,6 @@ def get_idx(key):
 def save(data, value):
     key = hash_function(data)
     index = get_idx(key)
-    print(data, key, index)
 
     if buckets[index] is None:
         buckets[index] = DoublyLinkedList()

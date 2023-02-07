@@ -1,26 +1,34 @@
-def dfs(n, graph, start):
+def bfs(n, graph, start):
     adjacent = [[] for _ in range(n + 1)]
     for node1, node2 in graph:
         adjacent[node1].append(node2)
         adjacent[node2].append(node1)
 
-    for a in adjacent:
-        a.sort(reverse=True)
-
     visited = []
 
-    stack = [start]
+    queue = [start]
 
-    while stack:
-        node = stack.pop()
+    while queue:
+        node = queue.pop()
         if node not in visited:
             visited.append(node)
-            stack.extend(adjacent[node])
+            queue.extend(adjacent[node])
 
     return visited
 
 
-n = 7
-graph = [[5, 4], [5, 2], [1, 2], [3, 4], [3, 1]]
+n = 11
+graph = [
+    [1, 2],
+    [1, 3],
+    [1, 8],
+    [2, 6],
+    [2, 10],
+    [3, 5],
+    [3, 4],
+    [3, 9],
+    [4, 7],
+    [9, 11],
+]
 
-print(dfs(n, graph, 3))
+print(bfs(n, graph, 1))

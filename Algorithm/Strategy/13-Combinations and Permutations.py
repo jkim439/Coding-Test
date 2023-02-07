@@ -36,3 +36,13 @@ def permutations(m, data, perm, visited):
 
 
 permutations(3, [1, 2, 3, 4], list(), list())
+
+
+from math import factorial
+
+
+def nCr(n, r):
+    return factorial(n) // factorial(r) // factorial(n - r)
+
+
+print(nCr(18, 2))  # 153
