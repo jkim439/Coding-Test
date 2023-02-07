@@ -1,4 +1,4 @@
-def bfs(n, graph, start):
+def dfs(n, graph, start):
     adjacent = [[] for _ in range(n + 1)]
     for node1, node2 in graph:
         adjacent[node1].append(node2)
