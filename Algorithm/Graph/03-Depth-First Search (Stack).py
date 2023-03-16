@@ -31,4 +31,4 @@ graph = [
     [9, 11],
 ]
 
-print(bfs(n, graph, 1))
+print(dfs(n, graph, 1))

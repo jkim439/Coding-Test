@@ -1,8 +1,8 @@
-def bfs(n, m, graph):
+def bfs(m, n, graph):
     dy = [-1, 0, 1, 0]
     dx = [0, 1, 0, -1]
 
-    visited = [[0] * m for _ in range(n)]
+    visited = [[0] * (n + 1) for _ in range(m + 1)]
     visited[0][0] = 1
 
     queue = [[0, 0]]
@@ -14,21 +14,21 @@ def bfs(n, m, graph):
             ny, nx = y + dy[i], x + dx[i]
 
             if (
-                0 <= ny < n
-                and 0 <= nx < m
+                0 <= ny <= m
+                and 0 <= nx <= n
                 and visited[ny][nx] == 0
                 and graph[ny][nx] == 1
             ):
                 visited[ny][nx] = visited[y][x] + 1
                 queue.append([ny, nx])
 
-    return visited[n - 1][m - 1]
+    return visited[m][n]
 
 
 print(
     bfs(
-        4,
-        6,
+        3,
+        5,
         [
             [1, 0, 1, 1, 1, 1],
             [1, 0, 1, 0, 1, 0],

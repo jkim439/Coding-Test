@@ -1,4 +1,4 @@
-def search(data, value):
+def binary_search(data, value):
     if data[0] == value:
         return True
 
@@ -9,11 +9,11 @@ def search(data, value):
     if value == data[median]:
         return True
     elif value < data[median]:
-        return search(data[:median], value)
+        return binary_search(data[:median], value)
     else:
-        return search(data[median:], value)
+        return binary_search(data[median:], value)
 
 
 data = [11, 21, 36, 47, 68, 93]
 print(data)
-print(search(data, 21))
+print(binary_search(data, 21))
